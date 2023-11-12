@@ -9,7 +9,12 @@ const AllocationForm = (props) => {
     const [action, setAction] = useState('');
 
     const submitEvent = () => {
-
+        
+        if(cost > 20000) {
+            alert("The value cannot exceed upper limit of 20,000");
+            setCost("");
+            return;
+        }
             if(cost > remaining) {
                 alert("The value cannot exceed remaining funds  £"+remaining);
                 setCost("");
@@ -64,6 +69,7 @@ const AllocationForm = (props) => {
                         type='number'
                         id='cost'
                         value={cost}
+                        step={10}
                         style={{ marginLeft: '2rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>

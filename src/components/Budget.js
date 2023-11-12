@@ -2,9 +2,17 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { budget } = useContext(AppContext);
+    const { expenses, budget } = useContext(AppContext);
+    const totalExpenses = expenses.reduce((total, item) => {
+        return (total = total + item.cost);
+    }, 0);
     const [newBudget, setNewBudget] = useState(budget);
     const handleBudgetChange = (event) => {
+        if(event.target.value < totalExpenses) {
+            alert("The budget cannot be lower than spending");
+            setNewBudget("");
+            return;
+        }
         setNewBudget(event.target.value);
     }
     return (
