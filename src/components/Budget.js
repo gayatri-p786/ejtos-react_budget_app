@@ -3,6 +3,7 @@ import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
     const { expenses, budget } = useContext(AppContext);
+    const { currency } = useContext(AppContext);
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
@@ -18,7 +19,10 @@ const Budget = () => {
     return (
 <div className='alert alert-secondary'>
 <span>Budget: £{budget}</span>
+<div>
+<span>{currency}</span>
 <input type="number" step="10" value={newBudget} onChange={handleBudgetChange}></input>
+</div>
 </div>
     );
 };
