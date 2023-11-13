@@ -1,11 +1,16 @@
 import React, { useContext, useState } from 'react';
+import { AppContext } from '../context/AppContext';
 
 const Currency = () => {
     const [currency, setCurrency] = useState('');
-    // const handleCurrencyChange = (event) => {
-        
-    //     setNewCurrency(event.target.value);
-    // }
+    const { dispatch } = useContext(AppContext);
+
+    const handleCurrencyChange = () => {
+        dispatch({
+                type: 'CHG_CURRENCY',
+                payload: currency,
+            });
+    };
     return (
         <div>
             <div className='row'>
@@ -14,7 +19,7 @@ const Currency = () => {
                     <div className="input-group-prepend alert alert-success">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Currency</label>
                   </div>
-                  <select className="custom-select alert alert-success" id="inputGroupSelect01" onChange={(event) => setCurrency(event.target.value)}>
+                  <select className="custom-select alert alert-success" id="inputGroupSelect01" onChange={event => {setCurrency(event.target.value); handleCurrencyChange()}}>
                         <option defaultValue>(£ Pound)</option>
                         <option value="£" name="Pound"> (£ Pound)</option>
                 <option value="$" name="Dollar">($ Dollar)</option>
