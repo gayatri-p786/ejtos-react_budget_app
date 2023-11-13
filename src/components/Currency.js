@@ -12,12 +12,12 @@ const Currency = () => {
             <div className='row'>
 
             <div className="input-group mb-3" style={{ marginLeft: '2rem' }}>
-                    <div className="input-group-prepend">
+                    <div className="input-group-prepend alert alert-success">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Currency</label>
                   </div>
-                  <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setCurrency(event.target.value)}>
+                  <select className="custom-select alert alert-success" id="inputGroupSelect01" onChange={(event) => setCurrency(event.target.value)}>
                         <option defaultValue>(£ Pound)</option>
-                        <option value="Marketing" name="Pound"> (£ Pound)</option>
+                        <option value="£" name="Pound"> (£ Pound)</option>
                 <option value="$" name="Dollar">($ Dollar)</option>
                 <option value="€" name="Euro">(€ Euro)</option>
                 <option value="₹" name="Rupee">(₹ Rupee)</option>
