@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
-import { useSelector} from 'react-redux';
 
 const Budget = () => {
     const { expenses, budget } = useContext(AppContext);
-    const { currency } = useSelector((state) => state.currency.value);
+    const { currency } = useContext(AppContext);
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
