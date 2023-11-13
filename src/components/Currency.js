@@ -3,10 +3,10 @@ import { AppContext } from '../context/AppContext';
 
 const Currency = () => {
     const [currency, setCurrency] = useState('');
-    const handleCurrencyChange = (event) => {
+    // const handleCurrencyChange = (event) => {
         
-        setNewCurrency(event.target.value);
-    }
+    //     setNewCurrency(event.target.value);
+    // }
     return (
         <div>
             <div className='row'>
